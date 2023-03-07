@@ -14,15 +14,15 @@ export default function CartInfo({flex}) {
     <View style={[styles.cartInfo, {flex}]}>
       <View style={styles.textStyle}>
         <Text style={styles.fontStyle}>Delivery Charges</Text>
-        <Text style={styles.fontStyle}>${deliveryCharges}</Text>
+        <Text style={styles.fontStyle}>${deliveryCharges.toFixed(2)}</Text>
       </View>
       <View style={styles.textStyle}>
         <Text style={styles.fontStyle}>Sub Total</Text>
-        <Text style={styles.fontStyle}>${subTotalValue}</Text>
+        <Text style={styles.fontStyle}>${subTotalValue.toFixed(2)}</Text>
       </View>
       <View style={styles.textStyle}>
         <Text style={styles.fontStyle}>Total</Text>
-        <Text style={styles.fontStyle}>${totalCartValue}</Text>
+        <Text style={styles.fontStyle}>${totalCartValue.toFixed(2)}</Text>
       </View>
     </View>
   );
