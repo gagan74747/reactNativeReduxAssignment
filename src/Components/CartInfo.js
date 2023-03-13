@@ -1,5 +1,5 @@
 import {View, StyleSheet, Text} from 'react-native';
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {getSubTotalValue} from '../utils/subTotalValue';
 import {getTotalCartValue} from '../utils/getTotalCartValue';
@@ -7,8 +7,14 @@ import {getTotalCartValue} from '../utils/getTotalCartValue';
 export default function CartInfo({flex}) {
   const cartItems = useSelector(state => state.cartItems);
   const deliveryCharges = 18;
-  const subTotalValue = getSubTotalValue(cartItems);
-  const totalCartValue = getTotalCartValue(subTotalValue, deliveryCharges);
+  const [subTotalValue, setSubTotalValue] = useState(0);
+  const [totalCartValue, setTotalCartValue] = useState(0);
+
+  useEffect(() => {
+    const subTotal = getSubTotalValue(cartItems);
+    setSubTotalValue(subTotal);
+    setTotalCartValue(getTotalCartValue(subTotal, deliveryCharges));
+  }, [cartItems]);
 
   return (
     <View style={[styles.cartInfo, {flex}]}>

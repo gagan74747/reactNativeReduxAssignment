@@ -16,6 +16,7 @@ export default function Cart() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+   flex:10,
+    marginHorizontal:10
   },
 });
